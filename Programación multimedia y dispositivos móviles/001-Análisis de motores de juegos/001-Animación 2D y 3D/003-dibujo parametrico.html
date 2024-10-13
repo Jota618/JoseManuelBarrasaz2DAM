@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas {
+        border: 1px solid grey; /* Define un borde gris de 1px alrededor del lienzo */
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas> <!-- Se crea un lienzo (canvas) en la página -->
+    <script>
+      var x = 20; // Inicializa la coordenada x donde se dibujará el rectángulo
+      var y = 20; // Inicializa la coordenada y donde se dibujará el rectángulo
+      var lienzo = document.querySelector("canvas"); // Selecciona el elemento canvas en el HTML
+      var contexto = lienzo.getContext("2d"); // Obtiene el contexto 2D para poder dibujar en el lienzo
+      lienzo.width = 512; // Establece el ancho del lienzo a 512 píxeles
+      lienzo.height = 512; // Establece la altura del lienzo a 512 píxeles
+
+      // Inicializa un temporizador que llama a la función 'bucle' después de 1 segundo (1000 ms)
+      var temporizador = setTimeout("bucle()", 1000);
+      
+      function bucle() {
+        x += 10; // Incrementa la coordenada x en 10 píxeles
+        contexto.fillRect(x, y, 30, 30); // Dibuja un rectángulo de 30x30 píxeles en las coordenadas (x, y)
+        console.log("esto es un bucle"); // Muestra un mensaje en la consola
+
+        clearTimeout(temporizador); // Limpia el temporizador anterior para evitar múltiples ejecuciones
+        temporizador = setTimeout("bucle()", 1000); // Inicia un nuevo temporizador que llama a 'bucle' después de 1 segundo
+      }
+    </script>
+  </body>
+</html>
