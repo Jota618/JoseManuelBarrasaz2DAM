@@ -1,6 +1,6 @@
 import os
 
-os.rmdir("micarpeta") #Borramos la carpeta
+os.rmdir("micarpeta")
 
 
 

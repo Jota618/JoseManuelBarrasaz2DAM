@@ -1,34 +1,28 @@
 <!doctype html>
-<!-- Declara que este documento es un HTML5 -->
 <html>
   <head>
     <style>
-      canvas {
-        border: 1px solid grey; /* Define un borde gris de 1 píxel alrededor del lienzo (canvas) */
-      }
+      canvas{border:1px solid grey;}
     </style>
   </head>
   <body>
     <canvas></canvas>
-    <!-- Crea un elemento canvas en el cuerpo del documento -->
     <script>
-      var x = 20; // Variable que almacena la posición horizontal inicial del rectángulo
-      var y = 20; // Variable que almacena la posición vertical inicial del rectángulo
-      var lienzo = document.querySelector("canvas"); // Selecciona el primer elemento canvas en el documento
-      var contexto = lienzo.getContext("2d"); // Obtiene el contexto 2D del lienzo para poder dibujar
-      lienzo.width = 512; // Establece el ancho del lienzo a 512 píxeles
-      lienzo.height = 512; // Establece la altura del lienzo a 512 píxeles
-
-      var temporizador = setTimeout("bucle()", 1000); // Inicia un temporizador que llama a la función 'bucle' después de 1000 milisegundos (1 segundo)
-
-      function bucle() {
-        contexto.clearRect(0, 0, 512, 512); // Limpia el lienzo, eliminando cualquier contenido anterior en el área definida
-        x += 10; // Incrementa la posición x en 10 píxeles para mover el rectángulo hacia la derecha
-        contexto.fillRect(x, y, 30, 30); // Dibuja un rectángulo relleno en la posición (x, y) con un tamaño de 30x30 píxeles
-        console.log("esto es un bucle"); // Imprime un mensaje en la consola para indicar que la función se ha ejecutado
-
-        clearTimeout(temporizador); // Cancela el temporizador anterior para evitar múltiples llamadas a 'bucle'
-        temporizador = setTimeout("bucle()", 1000); // Reinicia el temporizador para volver a llamar a la función 'bucle' después de 1 segundo
+      var x = 20;
+      var y = 20;
+      var lienzo = document.querySelector("canvas");
+      var contexto = lienzo.getContext("2d");
+      lienzo.width = 512;
+      lienzo.height = 512;
+      
+      var temporizador = setTimeout("bucle()",1000);
+      function bucle(){
+        contexto.clearRect(0,0,512,512);
+        x+=10;
+        contexto.fillRect(x,y,30,30);
+        console.log("esto es un bucle")
+        clearTimeout(temporizador);
+        temporizador = setTimeout("bucle()",1000);
       }
     </script>
   </body>

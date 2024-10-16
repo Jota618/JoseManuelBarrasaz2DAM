@@ -1,63 +1,40 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <style>
-      button {
-        width: 120px; /* Anchura del botón */
-        height: 35px; /* Altura del botón */
-        border: none; /* Sin borde */
-        border-radius: 25px; /* Bordes redondeados */
-        background-image: linear-gradient(
-          rgb(255, 100, 100),
-          rgb(255, 180, 180)
-        ); /* Gradiente de rojo claro a un tono más suave */
-        position: relative; /* Posición relativa para incluir un brillo dentro */
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra ligera */
-        color: white; /* Color del texto en blanco */
-        text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra suave en el texto */
-        font-size: 14px; /* Tamaño de la fuente */
-        font-weight: bold; /* Texto en negrita */
-        cursor: pointer; /* Cambia el cursor a pointer al pasar el mouse */
-        transition: all 0.3s ease; /* Transiciones suaves en hover y active */
+      button{
+        width:100px; /* Anchura del botón  */
+        height:25px;  /* Altura del botón */
+        border:none; /* Le quito el border que HTML le pone por defecto */
+        border-radius:20px; /* Quiero un radio redondeado */
+        background-image: 
+        linear-gradient(rgb(0,0,255), rgb(200,200,255)); /* Gradiente desde azul arriba a azul clarito abajo */
+        position:relative; /* La posicion es relativa para dentro meterle un elemento absoluto */
+        box-shadow:0px 5px 4px rgba(0,0,0,0.3); /* Arrojo una pequeña sombra */
+        color:white; /* El color del texto es blanco */
+        text-shadow:0px 2px 4px black; /* El texto arroja una pequeña sombra */
       }
-
-      button:hover {
-        background-image: linear-gradient(
-          rgb(255, 80, 80),
-          rgb(255, 160, 160)
-        ); /* Cambia el gradiente al pasar el mouse */
-        transform: translateY(-2px); /* Eleva el botón al pasar el mouse */
-      }
-
-      button:active {
-        transform: translateY(0); /* Vuelve a la posición original al hacer clic */
-        background-image: linear-gradient(
-          rgb(255, 60, 60),
-          rgb(255, 140, 140)
-        ); /* Cambia a un tono más oscuro en el clic */
-      }
-
-      #brillo {
-        width: 116px; /* Un poco más pequeño que el botón */
-        height: 31px; /* Menos alto que el botón */
-        top: 2px; /* Margen superior de 2px */
-        left: 2px; /* Margen izquierdo de 2px */
-        border-radius: 25px; /* Bordes redondeados para el brillo */
-        position: absolute; /* Posición absoluta dentro del botón */
-        background-image: linear-gradient(
-          rgba(255, 255, 255, 0.7),
-          rgba(255, 255, 255, 0.2),
-          rgba(255, 255, 255, 0)
-        ); /* Gradiente blanco semitransparente */
+      #brillo{
+        width:96px; /* El brillo es un poco menos ancho que el boton */
+        height:21px; /* El brillo es un poco menos alto que el boton */
+        top:2px; /* Tiene un margen superior de 2 pixeles */
+        left:2px; /* tiene un margen izquierdo de dos pixeles */
+        border-radius:20px; /* Está redondeado */
+        position:absolute; /* Su posición es absoluta dentro del boton */
+        background-image:  
+        linear-gradient(rgba(255,255,255,0.8),  
+        rgba(255,255,255,0.5), 
+        rgba(255,255,255,0.0)); /* Tiene un gradiente blanco */
       }
     </style>
+    
   </head>
   <body>
     <button>
       <div id="brillo"></div>
-      <!-- Efecto de brillo dentro del botón -->
       Púlsame
     </button>
+    
   </body>
 </html>

@@ -11,8 +11,8 @@
       let trabajador = new Worker("005-worker.js");   // Creo una instancia de Worker
       trabajador.postMessage("hola");                 // Le envío un mensaje 
       trabajador.onmessage = function(e){
-        console.log("El worker me deja un mensaje")
-        console.log("Y me dice:",e.data)
+        console.log("El worker me ha devuelto un mensaje")
+        console.log("Y el worker dice:",e.data)
       }
       
       

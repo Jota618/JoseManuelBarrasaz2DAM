@@ -36,7 +36,7 @@ except OSError as e:
     else:
         print(f"Unexpected error: {e}")
 
-def guardaCliente(): #Creamos las funciones de guardar funciones de guardar cliente y base de datos
+def guardaCliente():
     
 def guardaDB():
     pass
@@ -60,3 +60,13 @@ tk.Button(marco,text="Guardamos todos los clientes a base de datos",command=guar
 
 
 ventana.mainloop()
+
+##for cliente in clientes:
+##    archivo = open(carpeta+"/"+cliente.idcliente+".json",'w')
+##    json.dump(cliente.to_dict(),archivo,indent=4)
+##    archivo.close()
+
+
+        
+
+

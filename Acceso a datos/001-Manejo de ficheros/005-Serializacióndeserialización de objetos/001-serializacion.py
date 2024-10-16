@@ -1,7 +1,7 @@
-variable1 = "hola" #Creamos una variable
-variable2 = "que tal" #Creamos la segunda variable
+variable1 = "hola"
+variable2 = "que tal"
 
-archivo = open("archivo.txt",'w') #Creamos un archivo txt
-archivo.write(variable1+variable2) #Y escribimos las dos variables
-archivo.close() #Cerramos archivo
+archivo = open("archivo.txt",'w')
+archivo.write(variable1+variable2)
+archivo.close()
 

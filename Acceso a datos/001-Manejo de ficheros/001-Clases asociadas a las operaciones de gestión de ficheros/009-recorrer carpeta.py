@@ -1,5 +1,5 @@
 import os
 
-lista = os.listdir("fotos") #Creamos una lista para mostrar la carpeta fotos
+lista = os.listdir("fotos")
 
-print(lista) #Mostramos la lista en pantalla
+print(lista)

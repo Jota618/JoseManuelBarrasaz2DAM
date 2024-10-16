@@ -7,5 +7,5 @@ for archivo in lista:
     print(archivo)
     imagen = PIL.Image.open('fotos/'+archivo)
     datosexif = imagen._getexif()
-    cadena = datosexif[306].replace(":","").replace(" ","") #Recogemos el valor 306, que es la fecha de la foto, y cambiamos los puntos por huecos
+    cadena = datosexif[306].replace(":","").replace(" ","")
     print(cadena)

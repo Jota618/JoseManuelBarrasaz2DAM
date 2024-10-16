@@ -7,7 +7,7 @@ class Npc:
         self.x = nuevax
         self.y = nuevay
         self.angulo = nuevoangulo
-# Creo una lista de npcs
+# Creo una lista de 50 npcs
 npcs = []
 
 # Leo del json

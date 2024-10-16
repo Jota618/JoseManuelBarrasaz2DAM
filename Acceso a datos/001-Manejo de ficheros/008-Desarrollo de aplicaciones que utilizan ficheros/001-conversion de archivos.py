@@ -1,8 +1,9 @@
-import json  # Importo la librería para trabajar con archivos JSON
-import xml  # Importo la librería para trabajar con XML (no se usa en este fragmento)
+import json
+import xml
 
-# Abro el archivo cliente.json en modo lectura
-with open('cliente.json', 'r') as archivo:  
-    datos = json.load(archivo)  # Cargo el contenido del archivo JSON en la variable datos
+with open('cliente.json', 'r') as archivo:
+    datos = json.load(archivo)
 
-print(datos)  # Imprimo los datos cargados en la consola
+print(datos)
+
+

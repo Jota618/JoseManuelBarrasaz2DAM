@@ -7,5 +7,6 @@ for archivo in lista:
     print(archivo)
     imagen = PIL.Image.open('fotos/'+archivo)
     datosexif = imagen._getexif()
-    cadena = datosexif[306].replace("-","+").replace("4","3")
+    cadena = datosexif[306].replace(":","-").replace(" ","_")
     print(cadena)
+    os.rename('fotos/'+archivo,'fotos/'+cadena+".jpg")

@@ -1,5 +1,5 @@
-archivo = open("archivo.txt",'r') #Leemos el archivo
+archivo = open("archivo.txt",'r')
 
-contenido = archivo.read() #Seleccionamos el archivo
+contenido = archivo.read()
 
-print(contenido)    #Lo mostramos en pantalla
+print(contenido)

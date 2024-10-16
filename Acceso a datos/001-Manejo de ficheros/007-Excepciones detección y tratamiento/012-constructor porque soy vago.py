@@ -38,9 +38,9 @@ except OSError as e:
     else:
         print(f"Unexpected error: {e}")
 
-def guardaCliente(): #Definimos las funciones y añadimos datos
+def guardaCliente():
     global clientes
-    clientes.append(Cliente("00003","Jose Manuel","Barrasa","barrasa@gmail.com"))
+    clientes.append(Cliente("00003","Jose Vicente","Carratala","info@jocarsa.com","jocarsa2@gmail.com"))
 def guardaDB():
     for cliente in clientes:
         archivo = open(carpeta+"/"+cliente.idcliente+".json",'w')

@@ -22,10 +22,11 @@ class Producto:
 clientes = []
 clientes.append(Cliente())
 
-clientes[-1].nombre = "Jose Manuel"
-clientes[-1].apellidos = "Barrasa"
-clientes[-1].emails['profesional'].append("barrasa@gmail.com")
-clientes[-1].emails['personal'].append("jose@gmail.com")
+clientes[-1].nombre = "Jose Vicente"
+clientes[-1].apellidos = "Carratalá Sanchis"
+clientes[-1].emails['profesional'].append("info@josevicentecarratala.com")
+clientes[-1].emails['profesional'].append("info@jocarsa.com")
+clientes[-1].emails['personal'].append("jocarsa2@gmail.com")
 
 print(clientes[-1].emails)
 
