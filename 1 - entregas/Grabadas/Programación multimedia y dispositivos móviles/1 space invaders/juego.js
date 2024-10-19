@@ -1,16 +1,17 @@
-const lienzo = document.getElementById('lienzoJuego'); // Obtiene el elemento canvas del documento
-const ctx = lienzo.getContext('2d'); // Obtiene el contexto 2D para dibujar en el canvas
+const lienzo = document.getElementById("lienzoJuego"); // Obtiene el elemento canvas del documento
+const ctx = lienzo.getContext("2d"); // Obtiene el contexto 2D para dibujar en el canvas
 
 const imagenJugador = new Image(); // Crea una nueva imagen para el jugador
-imagenJugador.src = 'jugador.png'; // Establece la fuente de la imagen del jugador
+imagenJugador.src = "jugador.png"; // Establece la fuente de la imagen del jugador
 
 const imagenEnemigo = new Image(); // Crea una nueva imagen para el enemigo
-imagenEnemigo.src = 'enemigo.png'; // Establece la fuente de la imagen del enemigo
+imagenEnemigo.src = "enemigo.png"; // Establece la fuente de la imagen del enemigo
 
 const imagenBala = new Image(); // Crea una nueva imagen para la bala
-imagenBala.src = 'bala.png'; // Establece la fuente de la imagen de la bala
+imagenBala.src = "bala.png"; // Establece la fuente de la imagen de la bala
 
-let jugador = { // Define las propiedades del jugador
+let jugador = {
+    // Define las propiedades del jugador
     x: lienzo.width / 2 - 25, // Posición inicial en el eje x, centrado horizontalmente
     y: lienzo.height - 50, // Posición inicial en el eje y, cerca del borde inferior
     ancho: 50, // Ancho del jugador
@@ -39,52 +40,59 @@ function dibujarJugador() {
 }
 
 function dibujarBalas() {
-    balas.forEach(bala => { // Itera sobre cada bala en el array
+    balas.forEach((bala) => {
+        // Itera sobre cada bala en el array
         ctx.drawImage(imagenBala, bala.x, bala.y, bala.ancho, bala.alto); // Dibuja cada bala en el canvas
     });
 }
 
 function dibujarEnemigos() {
-    enemigos.forEach(enemigo => { // Itera sobre cada enemigo en el array
+    enemigos.forEach((enemigo) => {
+        // Itera sobre cada enemigo en el array
         ctx.drawImage(imagenEnemigo, enemigo.x, enemigo.y, tamanoEnemigo, tamanoEnemigo); // Dibuja cada enemigo en el canvas
     });
 }
 
 function dibujarPuntuacion() {
-    ctx.fillStyle = 'white'; // Establece el color del texto
-    ctx.font = '20px Arial'; // Establece la fuente del texto
-    ctx.fillText('Puntuación: ' + puntuacion, 10, 20); // Dibuja el puntaje en el canvas
+    ctx.fillStyle = "white"; // Establece el color del texto
+    ctx.font = "20px Arial"; // Establece la fuente del texto
+    ctx.fillText("Puntuación: " + puntuacion, 10, 20); // Dibuja el puntaje en el canvas
 }
 
 function dibujarVidas() {
-    ctx.fillStyle = 'white'; // Establece el color del texto
-    ctx.font = '20px Arial'; // Establece la fuente del texto
-    ctx.fillText('Vidas: ' + vidas, lienzo.width - 100, 20); // Dibuja las vidas restantes en el canvas
+    ctx.fillStyle = "white"; // Establece el color del texto
+    ctx.font = "20px Arial"; // Establece la fuente del texto
+    ctx.fillText("Vidas: " + vidas, lienzo.width - 100, 20); // Dibuja las vidas restantes en el canvas
 }
 
 function dibujarNivel() {
-    ctx.fillStyle = 'white'; // Establece el color del texto
-    ctx.font = '20px Arial'; // Establece la fuente del texto
-    ctx.fillText('Nivel: ' + nivel, lienzo.width / 2 - 30, 20); // Dibuja el nivel actual en el canvas
+    ctx.fillStyle = "white"; // Establece el color del texto
+    ctx.font = "20px Arial"; // Establece la fuente del texto
+    ctx.fillText("Nivel: " + nivel, lienzo.width / 2 - 30, 20); // Dibuja el nivel actual en el canvas
 }
 
 function actualizarBalas() {
-    balas.forEach((bala, indice) => { // Itera sobre cada bala
+    balas.forEach((bala, indice) => {
+        // Itera sobre cada bala
         bala.y -= bala.velocidad; // Actualiza la posición y de cada bala
-        if (bala.y < 0) { // Si la bala sale del canvas por arriba
+        if (bala.y < 0) {
+            // Si la bala sale del canvas por arriba
             balas.splice(indice, 1); // Elimina la bala del array
         }
     });
 }
 
 function actualizarEnemigos() {
-    enemigos.forEach((enemigo, indice) => { // Itera sobre cada enemigo
+    enemigos.forEach((enemigo, indice) => {
+        // Itera sobre cada enemigo
         enemigo.y += velocidadEnemigo; // Actualiza la posición y de cada enemigo
-        if (enemigo.y > lienzo.height) { // Si el enemigo sale del canvas por abajo
+        if (enemigo.y > lienzo.height) {
+            // Si el enemigo sale del canvas por abajo
             enemigos.splice(indice, 1); // Elimina el enemigo del array
             vidas--; // Reduce las vidas del jugador
-            if (vidas <= 0) { // Si no quedan vidas
-                alert('Juego terminado! Tu puntuación: ' + puntuacion); // Muestra un mensaje de fin de juego
+            if (vidas <= 0) {
+                // Si no quedan vidas
+                alert("Juego terminado! Tu puntuación: " + puntuacion); // Muestra un mensaje de fin de juego
                 document.location.reload(); // Recarga la página para reiniciar el juego
             }
         }
@@ -92,15 +100,18 @@ function actualizarEnemigos() {
 }
 
 function crearEnemigos() {
-    if (Math.random() < tasaAparicionEnemigo) { // Decide si aparece un nuevo enemigo
+    if (Math.random() < tasaAparicionEnemigo) {
+        // Decide si aparece un nuevo enemigo
         const x = Math.random() * (lienzo.width - tamanoEnemigo); // Posición x aleatoria dentro del canvas
         enemigos.push({ x: x, y: 0 }); // Agrega un nuevo enemigo al array
     }
 }
 
 function comprobarColisiones() {
-    balas.forEach((bala, indiceBala) => { // Itera sobre cada bala
-        enemigos.forEach((enemigo, indiceEnemigo) => { // Itera sobre cada enemigo
+    balas.forEach((bala, indiceBala) => {
+        // Itera sobre cada bala
+        enemigos.forEach((enemigo, indiceEnemigo) => {
+            // Itera sobre cada enemigo
             // Verifica si hay colisión entre la bala y el enemigo
             if (
                 bala.x < enemigo.x + tamanoEnemigo &&
@@ -111,9 +122,11 @@ function comprobarColisiones() {
                 enemigos.splice(indiceEnemigo, 1); // Elimina el enemigo del array
                 balas.splice(indiceBala, 1); // Elimina la bala del array
                 puntuacion += 10; // Aumenta el puntaje
-                if (puntuacion % 100 === 0) { // Cada 100 puntos
+                if (puntuacion % 100 === 0) {
+                    // Cada 100 puntos
                     nivel++; // Aumenta el nivel
-                    if (nivel % 2 === 0) { // Cada segundo nivel
+                    if (nivel % 2 === 0) {
+                        // Cada segundo nivel
                         velocidadEnemigo += 0.25; // Aumenta la velocidad de los enemigos
                         tasaAparicionEnemigo += 0.005; // Aumenta la tasa de aparición de enemigos
                     }
@@ -124,15 +137,17 @@ function comprobarColisiones() {
 }
 
 // Maneja los eventos de teclado
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
         jugador.dx = -jugador.velocidad; // Mueve el jugador a la izquierda
     }
-    if (e.key === 'ArrowRight') {
+    if (e.key === "ArrowRight") {
         jugador.dx = jugador.velocidad; // Mueve el jugador a la derecha
     }
-    if (e.key === ' ') { // Si se presiona la barra espaciadora
-        balas.push({ // Agrega una nueva bala al array
+    if (e.key === " ") {
+        // Si se presiona la barra espaciadora
+        balas.push({
+            // Agrega una nueva bala al array
             x: jugador.x + jugador.ancho / 2 - 5, // Posición x centrada en el jugador
             y: jugador.y, // Posición y en la del jugador
             ancho: 10, // Ancho de la bala
@@ -142,8 +157,8 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-document.addEventListener('keyup', (e) => {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+document.addEventListener("keyup", (e) => {
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
         jugador.dx = 0; // Detiene el movimiento horizontal al soltar la tecla
     }
 });
